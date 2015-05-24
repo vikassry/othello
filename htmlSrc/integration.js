@@ -29,7 +29,6 @@ var othello = function(size,attributes) {
 othello.prototype = {
 	start : function() {
 		var grid = this.grid;
-		console.log("baraka",this.initials);
 		this.initials.forEach(function(initial) {
 			grid[initial.id].value = initial.value;
 			grid[initial.id].enabled = false;
@@ -45,7 +44,7 @@ othello.prototype = {
 		return enabled && outflanks.length;
 	},
 	changePlayer : function() {
-		this.player = (this.player == 'B')? 'W' : 'B';
+		this.player = (this.player == 'B') ? 'W' : 'B';
 	},
 	placer : function(id) {
 		this.grid[id].enabled = false;
@@ -54,7 +53,7 @@ othello.prototype = {
 	flipper : function(fields_ids) {
 		var grid = this.grid;
 		fields_ids.forEach(function(id) {
-			grid[id].value = (grid[id].value == 'B')? 'W' : 'B';
+			grid[id].value = (grid[id].value == 'B') ? 'W' : 'B';
 		});
 	},
 	attacker : function(id) {
@@ -62,7 +61,7 @@ othello.prototype = {
 	},
 	update : function(id) {
 		var enabled = this.grid[id].enabled;
-		if(this.isValidMove(id) && enabled){
+		if(this.isValidMove(id)){
 			this.placer(id);
 			this.attacker(id);
 			this.changePlayer();
