@@ -1,0 +1,19 @@
+html
+  head
+    title Othello
+    link(rel='stylesheet', href='stylesheets/style.css')
+    script(type='text/javascript', src='javascripts/util.js')
+    script(type='text/javascript', src='javascripts/lib.js')
+    script(type='text/javascript', src='javascripts/integration.js')
+    script(type='text/javascript', src='javascripts/createGrid.js')
+    script(type='text/javascript').
+      var game = new othello(8,{onclick:"update(id)",class:"cell"});
+      var renderThePage = function(){
+      game.grid.setGrid(this.document.body,game.grid);
+      };
+      var update = function(id){
+      game.update(id);
+      renderThePage();
+      }
+      game.start();
+  body(onload='renderThePage()')
