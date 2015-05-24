@@ -5,7 +5,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
-  res.sendFile('/Users/vikass/jsWorkspace/othello-P-G/othello/public/index.html');
+  res.sendFile('/Users/vikass/jsWorkspace/othello/public/index.html');
 });
 
 io.on('connection', function(socket){
